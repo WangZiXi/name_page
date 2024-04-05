@@ -21,10 +21,10 @@ if submit_btn:
 
 if in_btn:
     if name_in and page_in:
-        new_df = data.append({'姓名':name_in,'页数':page_in},ignore_index=True)
-        new_df.to_excel('积分人员对照表.xlsx',index=False)
+        new_row = {'姓名': name_in, '页数': page_in}
+        data = data.append(new_row,ignore_index=True)
+        data.to_excel('积分人员对照表.xlsx',index=False)
         st.success('录入成功')
     else:
         st.warning('请输入姓名和电话')
-    
     
