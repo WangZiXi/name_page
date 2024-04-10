@@ -43,8 +43,8 @@ if in_btn:
     if name_in and page_in:
         new_row = pd.DataFrame({'姓名':[name_in],'页数':[page_in]})
         data = pd.concat([data,new_row],ignore_index=True)
-        # excel_data = data.to_excel(None,index=False)
-        if save_to_github(username,repo_name,file_path,data,token):
+        excel_data = data.to_excel(None,index=False)
+        if save_to_github(username,repo_name,file_path,excel_data,token):
             st.success('录入成功')
         else:
             st.error('录入失败')
