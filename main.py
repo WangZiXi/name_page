@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import requests
 import io
+import base64
 
 
 def save_to_github(username, repo_name, file_path, file_content, token):
@@ -10,8 +11,11 @@ def save_to_github(username, repo_name, file_path, file_content, token):
         'Authorization': f'token {token}',
         'Accept': 'application/vnd.github.v3+json'
     }
-    data = file_content
-    response = requests.put(url, headers=headers, data=data)
+    data = {
+        'message': 'Update Excel file',
+        'content': base64.b64encode(file_content).decode('utf-8')  # 将字节流转换为 Base64 编码的字符串
+    }
+    response = requests.put(url, headers=headers, json=data)
     return response.status_code == 200
 
 username = 'WangZiXi'
