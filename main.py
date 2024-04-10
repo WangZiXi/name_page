@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import requests
+import io
 
 
 def save_to_github(username, repo_name, file_path, file_content, token):
@@ -43,7 +44,14 @@ if in_btn:
     if name_in and page_in:
         new_row = pd.DataFrame({'姓名':[name_in],'页数':[page_in]})
         data = pd.concat([data,new_row],ignore_index=True)
-        excel_data = data.to_excel(None,index=False)
+         # 创建一个字节流
+        excel_buffer = io.BytesIO()
+        # 将数据写入字节流中
+        data.to_excel(excel_buffer, index=False)
+        # 重置字节流的指针位置
+        excel_buffer.seek(0)
+        excel_data = excel_buffer.getvalue()
+        # excel_data = data.to_excel(None,index=False)
         if save_to_github(username,repo_name,file_path,excel_data,token):
             st.success('录入成功')
         else:
