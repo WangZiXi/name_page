@@ -10,11 +10,8 @@ def save_to_github(username, repo_name, file_path, file_content, token):
         'Authorization': f'token {token}',
         'Accept': 'application/vnd.github.v3+json'
     }
-    data = {
-        'message': 'Update Excel file',
-        'content': file_content
-    }
-    response = requests.put(url, headers=headers, json=data)
+    data = file_content
+    response = requests.put(url, headers=headers, data=data)
     return response.status_code == 200
 
 username = 'WangZiXi'
