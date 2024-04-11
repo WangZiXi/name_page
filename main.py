@@ -5,7 +5,7 @@ from github import Github
 
 
 username = 'WangZiXi'
-password = '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'
+password = 'wangxin083'
 repo_owner = 'WangZiXi'
 repo_name = 'name_page'
 file_path = 'users.txt'
