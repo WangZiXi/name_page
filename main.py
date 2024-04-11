@@ -5,11 +5,11 @@ from github import Github
 
 
 username = 'WangZiXi'
-password = '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'
+password = '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'
 repo_owner = 'WangZiXi'
 repo_name = 'name_page'
 file_path = 'users.txt'
-# token = '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'
+# token = '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'
 
 g = Github(username,password)
 
