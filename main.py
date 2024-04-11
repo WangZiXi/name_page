@@ -6,9 +6,9 @@ from github import Github
 
 username = 'WangZiXi'
 password = 'wangxin083'
-repo_owner = 'WangZixi'
+repo_owner = 'WangZiXi'
 repo_name = 'name_page'
-file_path = 'name_page/users.txt'
+file_path = 'users.txt'
 # token = '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'
 
 g = Github(username,password)
