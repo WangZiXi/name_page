@@ -24,13 +24,8 @@ def save_to_github(data):
 
     st.success('录入成功')
 
-# data = pd.read
-
 contents = repo.get_contents(file_path)
 data = contents.decoded_content.decode('utf-8')
-st.write(data)
-
-# data = data.drop_duplicates()
 
 col1,col2 = st.columns(2)
 
@@ -43,8 +38,14 @@ in_btn = col2.button('录入')
 submit_btn = col1.button('查询')
 
 if submit_btn:
-    filtered_df = data[data['姓名'].str.contains(name)]
-    col1.dataframe(filtered_df,hide_index=True)
+    for line in data:
+        # 去除行末尾的换行符
+        line = line.strip()
+        # 检查该行是否包含姓名为王新
+        if name in line:
+            # 输出满足条件的行
+            st.code(line,language='text')
+    
 
 if in_btn:
     if name_in and page_in:
