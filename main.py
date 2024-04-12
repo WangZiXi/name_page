@@ -10,7 +10,7 @@ st.markdown("""
         {
             visibility: hidden;
         }
-        .st-emotion-cache-164nlkn.ea3mdgi1
+        .viewerBadge_link__qRIco
         {
             visibility: hidden;
         }
