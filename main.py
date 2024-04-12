@@ -26,7 +26,6 @@ def save_to_github(data):
 
 contents = repo.get_contents(file_path)
 data = contents.decoded_content.decode('utf-8')
-st.write(data)
 
 col1,col2 = st.columns(2)
 
@@ -39,19 +38,17 @@ in_btn = col2.button('录入')
 submit_btn = col1.button('查询')
 
 if submit_btn:
-    for line in data:
-        st.write(line)
+    for line in data.split('\n'):
         # 去除行末尾的换行符
         line = line.strip()
-        # 检查该行是否包含姓名为王新
         if name in line:
-            # 输出满足条件的行
-            st.code(line,language='text')
+            col1.code(line,language='text')
+    if name not in data:
+        col1.code('无信息',language='text')
     
-
 if in_btn:
     if name_in and page_in:
-        user_data = f'姓名：{name_in}，页数：{page_in}'
+        user_data = f'{name_in}{page_in}'
         save_to_github(user_data)
     else:
         st.warning('请输入姓名和页数')
