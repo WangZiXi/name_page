@@ -28,7 +28,7 @@ def save_to_github(data):
 
 contents = repo.get_contents(file_path)
 data = contents.decoded_content.decode('utf-8')
-st.code(data, language='text')
+st.write(data)
 
 # data = data.drop_duplicates()
 
@@ -48,16 +48,9 @@ if submit_btn:
 
 if in_btn:
     if name_in and page_in:
-        # new_row = pd.DataFrame({'姓名':[name_in],'页数':[page_in]})
-        # data = pd.concat([data,new_row],ignore_index=True)
-        # excel_data = data.to_excel(file_path,index=False)
-        # if save_to_github(username,repo_name,file_path,excel_data,token):
-        #     st.success('录入成功')
-        # else:
-        #     st.error('录入失败')
-        user_data = f'姓名：{name_in},年龄：{page_in}'
+        user_data = f'姓名：{name_in},页数：{page_in}'
         save_to_github(user_data)
     else:
-        st.warning('请输入姓名和电话')
+        st.warning('请输入姓名和页数')
     
     
