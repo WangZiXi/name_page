@@ -39,6 +39,7 @@ submit_btn = col1.button('查询')
 
 if submit_btn:
     for line in data:
+        st.write(line)
         # 去除行末尾的换行符
         line = line.strip()
         # 检查该行是否包含姓名为王新
