@@ -26,6 +26,7 @@ def save_to_github(data):
 
 contents = repo.get_contents(file_path)
 data = contents.decoded_content.decode('utf-8')
+st.write(data)
 
 col1,col2 = st.columns(2)
 
@@ -50,7 +51,7 @@ if submit_btn:
 
 if in_btn:
     if name_in and page_in:
-        user_data = f'姓名：{name_in},页数：{page_in}'
+        user_data = f'姓名：{name_in}，页数：{page_in}'
         save_to_github(user_data)
     else:
         st.warning('请输入姓名和页数')
