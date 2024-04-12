@@ -4,6 +4,20 @@ import requests
 from github import Github
 import os
 
+st.markdown("""
+        <style>
+        .st-emotion-cache-zq5wmm.ezrtsby0
+        {
+            visibility: hidden;
+        }
+        .st-emotion-cache-164nlkn.ea3mdgi1
+        {
+            visibility: hidden;
+        }
+        </style>
+        """, unsafe_allow_html= True)
+
+
 
 username = 'WangZiXi'
 password = os.getenv('key')
