@@ -8,7 +8,7 @@ username = 'WangZiXi'
 password = 'wangxin083'
 repo_owner = 'WangZiXi'
 repo_name = 'name_page'
-file_path = 'notes/users.txt'
+file_path = 'users.txt'
 # token = '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'
 
 g = Github(username,password)
